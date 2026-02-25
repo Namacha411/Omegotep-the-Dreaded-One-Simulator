@@ -22,11 +22,12 @@
 	function shareOnX() {
 		if (!result) return;
 		const lines = [
-			'畏怖の象徴・オメガオテプのファンファーレ結果',
+			'畏怖の象徴・オメガオテプのファンファーレシミュレーション結果',
 			`⚡ ダメージ: ${result.totalDamage}`,
 			`✨ PP回復: ${result.totalPPRecovered}`,
 			`🔄 バフ: +4×${result.totalBuffCount} → ${result.totalAttack}/${result.totalHealth}`,
-			'#シャドバ #ShadowverseWB'
+		`💀 破壊枚数: ${result.totalDestroys}`,
+			'https://omegotep-the-dreaded-one-simulator.vercel.app/'
 		];
 		const text = encodeURIComponent(lines.join('\n'));
 		window.open(`https://x.com/intent/post?text=${text}`, '_blank', 'noopener,noreferrer');
