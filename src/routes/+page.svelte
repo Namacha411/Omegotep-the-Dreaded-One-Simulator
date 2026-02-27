@@ -9,11 +9,11 @@
 	let revealedSteps: AbilityResult[] = $state([]);
 	let generation = $state(0);
 
-	let damage = $derived(result?.totalDamage ?? 0);
-	let buffCount = $derived(result?.totalBuffCount ?? 0);
-	let attack = $derived(result?.totalAttack ?? 4);
-	let health = $derived(result?.totalHealth ?? 4);
-	let ppRecovered = $derived(result?.totalPPRecovered ?? 0);
+	let damage = $derived(revealedSteps.filter((s) => s.abilityId === 2).length * 2);
+	let buffCount = $derived(revealedSteps.filter((s) => s.abilityId === 4).length);
+	let attack = $derived(4 + buffCount * 4);
+	let health = $derived(4 + buffCount * 4);
+	let ppRecovered = $derived(revealedSteps.filter((s) => s.abilityId === 3).length * 2);
 
 	function delay(ms: number): Promise<void> {
 		return new Promise((r) => setTimeout(r, ms));
